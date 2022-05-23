@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.egit.ui.internal.staging.StagingView">
+		<item key="MAIN_SASH_FORM_ORIENTATION_VERTICAL" value="false"/>
+		<item key="HORIZONTAL_SASH_FORM_WEIGHT" value="200,200"/>
+		<item key="STAGING_SASH_FORM_WEIGHT" value="200,200"/>
+		<item key="sortItemState" value="false"/>
+	</section>
+	<section name="GitCommitMessageComponent">
+		<list key="C:\Users\Joe\OneDrive\Documentos\ENTRA21\Entra21-logica-oriantacao-objetos\.git">
+			<item value="false"/>
+			<item value="ProfJoeVieira &lt;profjoevieirajr@gmail.com&gt;"/>
+			<item value="Aula orientação a Objetos e Classes"/>
+			<item value="ProfJoeVieira &lt;profjoevieirajr@gmail.com&gt;"/>
+			<item value="992414461c8f019cc33dd8398ea8bc19d71d20f6"/>
+			<item value="0"/>
+			<item value="false"/>
+		</list>
+	</section>
+</section>
