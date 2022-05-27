@@ -1,4 +1,4 @@
-# entra21 Programação orientada a objetos
+# Entra21 Programação orientada a objetos
 Repositório com as práticas realizadas em aula  
 
 > Conteúdo prático realizado em sala durante o projeto Entra21
