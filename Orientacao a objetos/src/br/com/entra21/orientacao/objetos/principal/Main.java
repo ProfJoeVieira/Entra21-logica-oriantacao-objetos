@@ -13,33 +13,36 @@ import br.com.entra21.orientacao.objetos.principal.aula03.polimorfismo.Velocista
 import br.com.entra21.orientacao.objetos.principal.aula04.interfaces.Gato;
 import br.com.entra21.orientacao.objetos.principal.aula04.interfaces.Humano;
 import br.com.entra21.orientacao.objetos.principal.aula04.interfaces.Pato;
+import br.com.entra21.orientacao.objetos.principal.aula05.revisao.Revisao;
 
 public class Main {
 
-	// o objeto da classe Scanner esta na variavel de entrada, então é um obj
-	// porem o System.in é uma chamada static pq
+	// o objeto da classe Scanner esta na variavel de entrada, entÃ£o Ã© um obj
+	// porem o System.in Ã© uma chamada static pq
 	// para acessar o in do System nao precisei dar new
 	static Scanner entrada = new Scanner(System.in);
 
-	public static void main(String[] args) {
+public static void main(String[] args) {
 
 		byte opcao;
-		System.out.println("aprendendo sobre orientação a objetos");
 
 		do {
-			System.out.println("Escolha uma opção");
+			System.out.println("Escolha uma opcao");
 			System.out.println("0 - Sair");
-			System.out.println("1 - Classes e objetos");
-			System.out.println("2 - Herança");
-			System.out.println("3 - Polimorfismo");
+			System.out.println("1 - Aprender Classes");
+			System.out.println("2 - Aprender Heranca");
+			System.out.println("3 - Aprender Polimorfismo");
+			System.out.println("4 - Apreender Conceitos POO");
+			System.out.println("5 - Aprender Polimorfismo com Interface");
+			System.out.println("6 - Revisao");
 			opcao = entrada.nextByte();
 
 			switch (opcao) {
 			case 0:
-				System.out.println("Saindo");
+				System.out.println("Saindo...");
 				break;
 			case 1:
-				aprenderClasses();
+				aprenderClassesObjetos();
 				break;
 			case 2:
 				aprenderHeranca();
@@ -51,130 +54,198 @@ public class Main {
 				aprenderConceitosPOO();
 				break;
 			case 5:
-				aprenderInterfaces();
+				aprenderPolimorfismoInterface();
 				break;
-
+			case 6:
+				revisarPOO();
+				break;
 			default:
+				System.out.println("Por favor, escolhar uma opcao valida.");
 				break;
 			}
-
 		} while (opcao != 0);
 
 	}
 
-	
-	private static void aprenderClasses() {
+	public static void aprenderClassesObjetos() {
 
-		// instanciando um objeto da classe Professor na variavel professorJava
-		Professor professorJava = new Professor();
+		// O objeto da classe Scanner esta na variavel entrada, entao e um obejto.
+		// Porem o System.i e uma chamada static pq
+		// para acessar o in do system nao precisa criar o new.
 
-		// instanciando um objeto da classe Professor na variavel professoraIngles
-		Professor professoraIngles = new Professor("Isabelle", (byte) 30);
+		// === ALUNO 1 === //
+		Aluno aluno1 = new Aluno();
+		aluno1.nome = "Emerson";
 
-		// Acessando os atributos com encapsulamento
-		System.out.println("Nome dela = " + professoraIngles.getNome());
-		professoraIngles.setNome("Isabelle 2");
-		System.out.println("agora o nome  dela = " + professoraIngles.getNome());
-		System.out.println("A idade dela é " + professoraIngles.getIdade());
+		// === ALUNO 2 === //
+		Aluno aluno2 = new Aluno();
+		aluno2.nome = "Fulano";
 
-		// Acessando o atributo estático da Classe Professor, atributos estáticos ou
-		// metodos estatico não pertencem aos objetos da Classe
-		// dessa forma é possivel acessar em a necessidade de criar um objeto com new
-		System.out.println("Os professoes trabalham na " + Professor.instituicao);
+		// === ALUNO 3 === //
+		Aluno aluno3;
+		aluno3 = new Aluno();
+		aluno3.idade = 18;
+		aluno3.nome = "Rubem";
+		aluno3.idade = 33;
 
-		// Criando varios objetos da classe Aluno nas variaveis
-		// cada variavel é independente e possui seus atributos e metodos
-		Aluno alunoTeste = new Aluno();
-		Aluno outroAluno = new Aluno();
-		Aluno alunoNovato = new Aluno();
-		Aluno alunoObjeto;
-		alunoObjeto = new Aluno();
-
-		// as alterações aqui só afetam esse objeto
-		alunoObjeto.idade = 18;
-
-		// as alterações aqui só afetam esse objeto
-		alunoTeste.nome = "Rubem";
-		alunoTeste.idade = 33;
-
-		// as alterações aqui só afetam esse objeto
-		outroAluno.idade = 18;
-		outroAluno.nome = "Visitante";
-
-		// Executando varias vezes o metodo desse objeto
-		alunoTeste.responderChamada();
-		alunoTeste.responderChamada();
-		alunoTeste.responderChamada();
-		alunoTeste.responderChamada();
-
-		// Interagindo com o usuario para preencher os atributos do Aluno que ainda não
-		// tem encapsulamento
-		System.out.println("Qual o nome do aluno novato?");
-		alunoNovato.nome = entrada.next();
-
-		System.out.println("Qual a idade do " + alunoNovato.nome + "?");
-		alunoNovato.idade = entrada.nextByte();
-
-		System.out.println("Bem vindo " + alunoNovato.nome);
-
+		// === ALUNO 4 === //
+		Aluno aluno4 = new Aluno();
+		System.out.println("Qual o nome do aluno4?");
+		aluno4.nome = entrada.next();
+		System.out.println("Qual a idade do aluno4?");
+		aluno4.idade = entrada.nextByte();
+		System.out.println("Bem vindo " + aluno4.nome);
+		System.out.println("Bem vindo " + aluno4.respoderChamada());
 	}
 
-	private static void aprenderHeranca() {
+	public static void aprenderHeranca() {
+
 		Pessoa pessoa1 = new Pessoa();
 
-		Diretor diretor1 = new Diretor("Paulo", (byte) 80, "08938491212", "Entra21", (byte) 10);
-		diretor1.setNome("Paulo");
+		Diretor diretor3 = new Diretor("Paulo", (byte) 27, "0767566454", "Java", (byte) 3);
+		diretor3.realizarApresentacao();
 
 		Funcionario funcionario1 = new Funcionario();
-		funcionario1.setIdade((byte) 22);
-		funcionario1.setObservacao("novato");
+		funcionario1.setIdade((byte) 27);
+		funcionario1.setNome("Emerson");
+		funcionario1.setCargoAtual("Programador Jr");
+		funcionario1.setSalario(4000);
+		funcionario1.setObervacao("obervando");
+		System.out
+				.println("Ola meu nome e " + funcionario1.getNome() + " e tenho " + funcionario1.getIdade() + " anos");
 
-		Funcionario funcionario2 = new Funcionario("Fulano", (byte) 18, "07821199901", "Junin", 4000.05f);
+		Funcionario funcionario2 = new Funcionario("Bruno", (byte) 22, "384798237", "programador Jr", 2500.5f);
 		funcionario2.getCpf();
 
+		// === DIRETOR 1 === //
+		Diretor diretor1 = new Diretor();
+		diretor1.realizarApresentacao();
+		diretor1.setNome("Emerson");
+		diretor1.setIdade((byte) 27);
+		diretor1.setObervacao("obervando");
+
+		// === DIRETOR 2 === //
+		Diretor diretor2 = new Diretor();
+
+		// === PROFESSOR JAVA === //
+		Professor professorJava = new Professor();
+		professorJava.setNome("Oliota");
+
+		// === PROFESSORA INGLES === //
+		Professor professoraIngles = new Professor("Isabelle", (byte) 30);
+		System.out.println("Nome dela =" + professoraIngles.getNome());
+		professoraIngles.setNome("Isabelle 2");
+		System.out.println("Nome dela =" + professoraIngles.getNome());
+		System.out.println("A idade dela e " + professoraIngles.getIdade());
+		System.out.println("Os professores trabalham na " + Professor.instituicao);
 	}
 
 	private static void aprenderPolimorfismo() {
-		Atleta atleta = new Atleta();
-		Gamer gamer = new Gamer();
-		Velocista velocista = new Velocista();
-		Nadador nadador = new Nadador();
 
-		atleta.agradecerVitoria();
-		System.out.println("---------------");
-		gamer.agradecerVitoria();
-		System.out.println("---------------");
-		velocista.agradecerVitoria();
-		System.out.println("---------------");
-		nadador.agradecerVitoria();
+		Atleta cr7 = new Atleta();
+		cr7.comemorarVitoria();
+		cr7.aprenderComDerrota();
 
+		System.out.println("----------------------------");
+		
+		Nadador michaelPhelps = new Nadador();
+		michaelPhelps.setNome("Michael Phelps");
+		Nadador sergioMichael = new Nadador("SÃ©rgio Michael", (byte) 39, 23, 40, "PiscÃ­na", "Sunga e Touca");
+		sergioMichael.comemorarVitoria(); // procura primeiro na minha classe Nadador, como o mÃ©todo com polimorfismo nÃ£o foi acionado com o envio de uma frase, usara o metodo da heranÃ§a.
+		michaelPhelps.comemorarVitoria(); // procura primeiro na minha classe Nadador, como o mÃ©todo com polimorfismo nÃ£o foi acionado com o envio de uma frase, usara o metodo da heranÃ§a.
+		
+		sergioMichael.comemorarVitoria(" Foi Ã¡rduo, mas consegui!"); // Enviando uma frase, acessar o metodo com polimorfismo na classe Nadador e apresenta a frase enviada.
+		sergioMichael.comemorarVitoria(""); // Enviando frase vazia, acessar o metodo com polimorfismo na classe Nadador e apresenta a frase redundante
+		
+		System.out.println("----------------------------");
+
+		Velocista usainBolt = new Velocista();
+		usainBolt.setNome("Usain Bolt");
+		usainBolt.comemorarVitoria();
+
+		System.out.println("----------------------------");
 	}
+
 	private static void aprenderConceitosPOO() {
-		System.out.println("Verifique as classes do pacote da aula 4 conceitos POO"); 
+		// A classe ponto tem alta coesao pois ele e preciso nas suas responsabilidades
+		Ponto pontoAlto = new Ponto(30,10000);
+		Ponto esquerdaBaixo = new Ponto(-20,-100);
+		
+		// A classe reta Ã© agregada por pontos que podem nao estar inicializados.
+		// A associacao de reta e ponto e de um para muitos respctivamente.
+		Reta torta = new Reta();
+		Reta retaDiagonal = new Reta(pontoAlto, esquerdaBaixo);
+		
+		System.out.println("O ponto representado em esquerdaBaixo tem a corrdenada X em: "+esquerdaBaixo.getCoordenadaX());
 		
 	}
-	private static void aprenderInterfaces() {
-		Humano pessoa= new Humano();
-		pessoa.setNome("Fulano");
-		pessoa.alimentar("macarrão");
-		pessoa.alimentar("arroz");
-		pessoa.comunicar("Boa noite, interface é muito fácil");
-		pessoa.locomover();
-		
-
-		Gato vezu= new Gato(); 
-		vezu.alimentar("peixe");
-		vezu.alimentar("ração");
-		vezu.comunicar("Será que existem gatos programadores?");
-		vezu.locomover();
-		
-
-		Pato patolino= new Pato(); 
-		patolino.alimentar("peixe"); 
-		patolino.comunicar("Será que existem gatos programadores?");
-		patolino.locomover();
-	}
-
 	
+	private static void aprenderPolimorfismoInterface() {
+		
+		//
+		Humano emerson = new Humano();
+		emerson.setNome("Emerson");
+		emerson.apresentarSe();
+		emerson.alimentar("Hot-dog");
+		emerson.locomover();
+		emerson.comunicar("Ola");
+		
+		System.out.println("=======================");
+		
+		Gato gamora = new Gato("Gamora", new Pessoa("Mayara", (byte)34, "123123123-12"));
+		gamora.alimentar("racao");
+		gamora.comunicar("cade a racao doido?");
+		gamora.locomover();
+		
+		System.out.println("=======================");
+		
+		Capivara robson = new Capivara();
+		robson.alimentar("agua");
+		robson.comunicar("");
+		robson.locomover();
+		
+		System.out.println("=======================");
+		
+		Planta maracuja = new Planta("Passiflora edulis Sims");
+		maracuja.alimentar("bife");
+		maracuja.comunicar("");
+		maracuja.locomover();
+		
+		System.out.println("=======================");
+		
+		Et babyyoda = new Et("Baby Yoda");
+		babyyoda.alimentar("SAPOS");
+		babyyoda.comunicar("");
+		babyyoda.locomover();
+		
+		System.out.println("=======================");
+		
+		Onca oncapintada = new Onca("Onca Pintada");
+		oncapintada.alimentar("CARNE");
+		oncapintada.comunicar("");
+		oncapintada.locomover();
+		
+		System.out.println("=======================");
+		
+		Carro celta = new Carro();
+		celta.abastecer("GASOLINA");
+		celta.acelerar(100);
+		celta.freiar();
+		
+		System.out.println("=======================");
+		
+		Aviao comercial = new Aviao();
+		comercial.setModelo("Boeing 737");
+		System.out.println(comercial.freiar());
+		comercial.acelerar(870.5f);
+		comercial.freiar();
+		comercial.abastecer("QUEROSENE");
+	}
+	
+	private static void revisarPOO() {
+		Revisao.revisar();
+	}
 
 }
+
+
